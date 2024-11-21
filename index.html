@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>បុណ្យខួបកំណើតស្រស់ស្រាយ</title>
-    <audio src="Daniel Caesar - Best Part (Audio) ft. H.E.R..mp3" id="linkmp3" class="sembunyi"></audio>
     
     <style>
+        
         /* General body styling */
         body {
             font-family: 'Arial', sans-serif;
@@ -21,6 +21,14 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
+        .sembunyi {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+            position: absolute;
+        }
+
 
         li {
             position: relative;
@@ -161,6 +169,10 @@
     </style>
 </head>
 <body>
+    <audio src="song.mp3" id="linkmp3" class="sembunyi"></audio>
+<br><br>    
+    <button onclick="document.getElementById('linkmp3').play()">Play Music</button>
+<br><br>
     <div class="container">
         <h1> បុណ្យខួបកំណើតស្រស់ស្រាយ, Nith Jerry!</h1>
         <br>
@@ -214,6 +226,13 @@
     </div>
 
     <script>
+        window.onload = () => {
+            const audio = document.getElementById("linkmp3");
+            audio.play().catch((error) => {
+                console.log("Autoplay gagal, pengguna perlu mengklik tombol untuk memutar audio.");
+            });
+        };
+
         let slideIndex = 1;
         showSlides(slideIndex);
 
